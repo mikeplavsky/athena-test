@@ -29,6 +29,8 @@
 
   (let [query (nth args 0)
         rs (.executeQuery stmt query)]
-    )
+
+    (.next rs)
+    (println (.getString rs 1)))
 
   (println "done"))
