@@ -40,7 +40,7 @@
 
   (println "executing query")
 
-  (let [query (nth args 0)
+  (let [query (slurp (nth args 0))
         rs (.executeQuery stmt query)
         m (.getMetaData rs)]
 
