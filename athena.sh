@@ -1,7 +1,10 @@
 #!/bin/bash
 
+export CLASSPATH=commons-logging-1.2.jar:AthenaJDBC41-1.0.0.jar:aws-java-sdk-1.11.63.jar:$(pwd) 
+echo $CLASSPATH
+
 echo "compiling..."
-javac athena.java -cp AthenaJDBC41-1.0.0.jar
+javac athena.java
 
 if [ $? -eq 0  ]
 then
@@ -12,6 +15,4 @@ else
 fi    
 
 echo "running..."
-
-java -cp "AthenaJDBC41-1.0.0.jar":$(pwd) \
-    athena $1
+java athena $1

@@ -2,7 +2,7 @@ import java.sql.*;
 import java.util.Properties;
 
 import com.amazonaws.athena.jdbc.AthenaDriver;
-import com.amazonaws.auth.PropertiesFileCredentialsProvider;
+import com.amazonaws.auth.InstanceProfileCredentialsProvider;
 
 public class athena {
 
@@ -17,7 +17,7 @@ public class athena {
                 "s3://athena-devs-perf-query-result/test/");
 
         info.put("aws_credentials_provider_class",
-                "com.amazonaws.auth.PropertiesFileCredentialsProvider");
+                "com.amazonaws.auth.InstanceProfileCredentialsProvider");
 
         try {
             System.out.println("Connecting to Athena...");
