@@ -16,7 +16,7 @@ public class athena {
         Properties info = new Properties();
 
         info.put("s3_staging_dir", 
-                "s3://aws-athena-query-results1/");
+                "s3://aws-athena-query-results-/");
 
         info.put("aws_credentials_provider_class",
                 "com.amazonaws.auth.InstanceProfileCredentialsProvider");
