@@ -22,15 +22,31 @@
 (def conn (DriverManager/getConnection athenaURI info))
 (def stmt (.createStatement conn))
 
+(defn read_row 
+  [rs]
+  (let [m (.getMetaData rs)
+        cnt (.getColumnCount m)]
+
+    (doall 
+      (map 
+
+        #(println (.getColumnName m %) 
+                  (.getString rs %)) 
+
+                  (range 1 (+ 1 cnt))))))
+
 (defn -main
   [& args]
 
   (println "executing query")
 
   (let [query (nth args 0)
-        rs (.executeQuery stmt query)]
+        rs (.executeQuery stmt query)
+        m (.getMetaData rs)]
 
-    (.next rs)
-    (println (.getString rs 1)))
-
-  (println "done"))
+    (loop [more (.next rs)]
+      (if-not more 
+        (println "done") 
+        (do 
+          (read_row rs)
+          (recur (.next rs)))))))
