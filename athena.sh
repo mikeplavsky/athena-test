@@ -1,10 +1,10 @@
 #!/bin/bash
 
-export CLASSPATH=AthenaJDBC41-1.0.0.jar:aws-java-sdk-1.11.63/lib/*:aws-java-sdk-1.11.63/third-party/lib/*:$(pwd) 
+export CLASSPATH=AthenaJDBC41-1.0.0.jar:aws-java-sdk-1.11.63/lib/*:aws-java-sdk-1.11.63/third-party/lib/*:$(pwd)/distr 
 echo $CLASSPATH
 
 echo "compiling..."
-javac athena.java
+javac -d distr athena.java
 
 if [ $? -eq 0  ]
 then
