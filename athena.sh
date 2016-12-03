@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export CLASSPATH=commons-logging-1.2.jar:AthenaJDBC41-1.0.0.jar:aws-java-sdk-1.11.63.jar:$(pwd) 
+export CLASSPATH=AthenaJDBC41-1.0.0.jar:aws-java-sdk-1.11.63/lib/*:aws-java-sdk-1.11.63/third-party/lib/*:$(pwd) 
 echo $CLASSPATH
 
 echo "compiling..."

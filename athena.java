@@ -19,6 +19,8 @@ public class athena {
         info.put("aws_credentials_provider_class",
                 "com.amazonaws.auth.InstanceProfileCredentialsProvider");
 
+        info.put("log_path", "./.athena/athenajdbc.log");
+
         try {
             System.out.println("Connecting to Athena...");
             Connection conn = DriverManager.getConnection(athenaUrl, info);
